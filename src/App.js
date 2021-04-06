@@ -1,8 +1,10 @@
 import './App.css';
 import React, {useState} from 'react';
-import Image from "./components/Image";
-import SearchForm from "./components/SearchForm";
+import Home from "./pages/Home";
+import Gallery from "./pages/Gallery";
 import useAsyncHook from './hooks/useAsyncHook';
+import {Switch, Route} from "react-router-dom";
+import ImageView from "./components/ImageView";
 
 
 function App() {
@@ -10,15 +12,13 @@ function App() {
   const [images, loading] = useAsyncHook(searchQuery);
 
     return (
-      <div className="App">
-        <SearchForm searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
-          {loading ?
-            images.map((image, index) => {
-              return (
-                <Image url={image.urls.regular} key={index} alt={image.description} />
-              )
-            })
-           : ""}
+      <div>
+      <Switch>
+        <Route exact path="/" children={<Home images={images} loading={loading} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
+        <Route path="/gallery" children={<Gallery images={images} loading={loading} searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>} />
+        <Route exact path="/image/:id" render={({match}) => (
+           <ImageView image={images.find(image => image.id === match.params.id)} />)}></Route>
+      </Switch>
       </div>
     )
 }
