@@ -13,7 +13,6 @@ const Gallery = ( {images, loading, searchQuery, setSearchQuery}) => {
               pathname: `/image/${image.id}`,
             }}
           > 
-          
             <Image url={image.urls.small} alt={image.description} />
             {console.log(image)}
             <p>{image.description}</p>
