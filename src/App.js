@@ -1,10 +1,11 @@
 import './App.css';
 import React, {useState} from 'react';
 import Home from "./pages/Home";
-import Gallery from "./pages/Gallery";
+import PhotoList from "./pages/PhotoList";
 import useAsyncHook from './hooks/useAsyncHook';
 import { Switch,  Route} from "react-router-dom";
 import ImageView from "./components/ImageView";
+
 
 
 function App() {
@@ -13,9 +14,8 @@ function App() {
 
     return (
       <div>
-        
       <Switch>
-        <Route path="/gallery" children={<Gallery images={images} loading={loading} searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>} />
+        <Route path="/photos" children={<PhotoList images={images} loading={loading} searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>} />
         <Route path="/image/:id" render={({match}) => (
            <ImageView image={images.find(image => image.id === match.params.id)} />)}></Route>
         <Route path="/" >

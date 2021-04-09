@@ -23,7 +23,7 @@ const SerachForm = ({images, loading, searchQuery, setSearchQuery} ) => {
         <FaSistrix />
         </Button>
       </form>
-        {redirect && <Redirect to="/gallery" />}
+        {redirect && <Redirect to="/photos" />}
       </div>
     )
   }

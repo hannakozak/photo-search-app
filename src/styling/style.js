@@ -18,18 +18,46 @@ margin-bottom: 3rem;
 `;
 
 export const Button = styled.button`
-  font-size: 1em;
+  font-size: 0.9rem;
   text-align: center;
   background-color: ${COLORS.grey2};
   border: none;
 `;
 
 export const Modal = styled.div`
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  left: 20px;
-  bottom: 20px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.2);
-  background: #FFF;
+  position: absolute;
+  top: 5rem;
+  bottom: 5rem;
+  right: 5rem;
+  left: 5rem;
+`;
+
+export const ModalImage = styled.div`
+object-fit: cover;
+`;
+
+
+export const ImageGrid = styled.div`
+margin-top: 2rem;
+column-count: 3;
+`;
+
+export const Card = styled.div`
+margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const CardImage = styled.div`
+    border-radius: 10px;
+`;
+
+export const Wrapper = styled.div`
+  position: relative;
+  margin: 0 auto;
+  max-width: 100rem;
+  padding: 4rem;
+  font-size: 1.6rem;
+  text-align: center;
 `;

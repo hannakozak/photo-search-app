@@ -1,25 +1,32 @@
 import Image from "../components/Image";
 import SearchForm from "../components/SearchForm";
 import { Link} from "react-router-dom";
+import {Wrapper, ImageGrid, Card, CardImage} from '../styling/style';
 
-const Gallery = ( {images, loading, searchQuery, setSearchQuery}) => {
+const PhotoList = ( {images, loading, searchQuery, setSearchQuery}) => {
     return (
-      <div>
+      <Wrapper>
         <SearchForm images={images} loading={loading} searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
+        <ImageGrid>
         {images.map(image => (
-          <Link
+          <Card>
+            <Link
             key={image.id}
             to={{
               pathname: `/image/${image.id}`,
             }}
           > 
-            <Image url={image.urls.small} alt={image.description} />
+          <CardImage>
+          <Image url={image.urls.small} alt={image.description} />
+          </CardImage>
+           
             {console.log(image)}
-            <p>{image.description}</p>
           </Link>
+          </Card>
         ))}
-      </div>
+        </ImageGrid>
+      </Wrapper>
     );
 }
 
-export default Gallery;
+export default PhotoList;
