@@ -1,63 +1,80 @@
 import styled from 'styled-components';
 import { COLORS } from './constants';
+import MainPhoto from '../images/tree-large.jpg';
+
+
+export const BgImage = styled.div`
+    background-image: url(${MainPhoto});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+`;
 
 export const Title = styled.h1`
-  font-size: 1.5em;
+  font-size: 3.5rem;
+  padding-bottom: 1rem;
   text-align: center;
-  color: ${COLORS.grey1};
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
 
 export const Input = styled.input`
-background-color: ${COLORS.grey2};
 border: none;
-padding: .7rem 2rem;
+padding: 1rem 2rem;
+font-size: 1.5rem;
 border-radius: 100px;
-width: 40%;
+width: 60%;
 margin-right: -3.25rem;
 margin-bottom: 3rem;
+margin-top: 3rem;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
 
 export const Button = styled.button`
-  font-size: 0.9rem;
+  font-size: 2rem;
   text-align: center;
-  background-color: ${COLORS.grey2};
+  background-color: white;
   border: none;
 `;
 
 export const Modal = styled.div`
   position: absolute;
-  top: 5rem;
-  bottom: 5rem;
-  right: 5rem;
-  left: 5rem;
+  top: 4;
+  left: 0;
+  right: 0;
+  bottom: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
 `;
 
 export const ModalImage = styled.div`
-object-fit: cover;
+  display: inline-block;
+  width: 100%;
+  object-fit: cover;
 `;
 
-
 export const ImageGrid = styled.div`
-margin-top: 2rem;
 column-count: 3;
+padding: 4rem;
 `;
 
 export const Card = styled.div`
-margin-bottom: 1rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
 `;
 
 export const CardImage = styled.div`
     border-radius: 10px;
+    padding-bottom: 1.5rem;
 `;
 
 export const Wrapper = styled.div`
-  position: relative;
+position: relative;
   margin: 0 auto;
-  max-width: 100rem;
-  padding: 4rem;
-  font-size: 1.6rem;
+  padding: 2rem;
   text-align: center;
 `;

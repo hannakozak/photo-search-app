@@ -1,7 +1,6 @@
 
+
 const Image = ({url, alt}) => {
-  
-  
 
   return (
     <div>

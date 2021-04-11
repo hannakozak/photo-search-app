@@ -2,6 +2,7 @@ import {Input, Button} from '../styling/style';
 import { FaSistrix } from "react-icons/fa";
 import React, {useState} from 'react';
 import { Redirect } from "react-router-dom";
+import {GlobalStyle} from '../styling/globalStyle';
  
 const SerachForm = ({images, loading, searchQuery, setSearchQuery} ) => {
   const [redirect, setRedirect] = useState(false);
@@ -18,7 +19,8 @@ const SerachForm = ({images, loading, searchQuery, setSearchQuery} ) => {
     return (
       <div>
         <form onSubmit={handleSubmit}>
-        <Input value={searchQuery} onChange={handleChange}></Input>
+        <GlobalStyle />
+        <Input value={searchQuery} onChange={handleChange} placeholder="Search photos"></Input>
         <Button>
         <FaSistrix />
         </Button>
