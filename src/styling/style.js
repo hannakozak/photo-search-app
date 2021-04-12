@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { COLORS } from './constants';
 import MainPhoto from '../images/tree-large.jpg';
 
 
@@ -40,22 +39,27 @@ export const Button = styled.button`
   border: none;
 `;
 
-export const Modal = styled.div`
-  position: absolute;
-  top: 4;
-  left: 0;
-  right: 0;
-  bottom: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
+export const CloseButton = styled.button`
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  position: relative;
+  background-color: transparent;
+  color: white;
+  text-transform: uppercase;
+  right: 3rem;
+  bottom: 1.5rem;
+  z-index: 10;
+`;
+export const Image = styled.img`
+ max-height: 80vh;
+ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+ position: relative;
+ z-index: 1;
 `;
 
-export const ModalImage = styled.div`
-  display: inline-block;
-  width: 100%;
-  object-fit: cover;
+export const Modal = styled.img`
+ position: relative;
 `;
 
 export const ImageGrid = styled.div`

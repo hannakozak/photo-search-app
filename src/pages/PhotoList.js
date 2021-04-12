@@ -1,4 +1,3 @@
-import Image from "../components/Image";
 import SearchForm from "../components/SearchForm";
 import { Link} from "react-router-dom";
 import {Wrapper, ImageGrid, Card, CardImage} from '../styling/style';
@@ -17,7 +16,7 @@ const PhotoList = ( {images, loading, searchQuery, setSearchQuery}) => {
             }}
           > 
           <CardImage>
-          <Image url={image.urls.small} alt={image.description} />
+          <img src={image.urls.small} alt={image.description} />
           </CardImage>
            
             {console.log(image)}

@@ -1,6 +1,5 @@
 import { useHistory } from "react-router-dom";
-import Image from "./Image";
-import { Modal, ModalImage, Wrapper } from '../styling/style';
+import { Wrapper, Image, CloseButton} from '../styling/style';
 
 const ImageView = ({ image }) => {
   
@@ -13,14 +12,15 @@ const ImageView = ({ image }) => {
 
   return (
     <Wrapper onClick={back}>
-    <Modal>
-      <ModalImage>
-      <Image url={image.urls.regular} alt={image.description} />
-      <button type="button" onClick={back}>
-        Close
-      </button>
-      </ModalImage>
-    </Modal>
+      <div>
+      <Image src={image.urls.regular} alt={image.description} />
+      <CloseButton type="button" onClick={back}>
+        X
+      </CloseButton>
+      <p>{image.description} - {image.user.name}</p>
+      
+      
+      </div>
   </Wrapper>
   )
 }
