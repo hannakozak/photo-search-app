@@ -17,7 +17,8 @@ const ImageView = ({ image }) => {
       <CloseButton type="button" onClick={back}>
         X
       </CloseButton>
-      <p>{image.description} - {image.user.name}</p>
+      <p>Photo by {image.user.name} on Unsplash</p>
+      <p>{image.description}</p>
       
       
       </div>
