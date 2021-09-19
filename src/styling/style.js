@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import MainPhoto from '../images/tree-large.jpg';
 
-
 export const BgImage = styled.div`
     background-image: url(${MainPhoto});
     background-size: cover;
