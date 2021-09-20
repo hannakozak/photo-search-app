@@ -1,7 +1,7 @@
-import SerachForm from '../components/SearchForm';
+import SerachForm from '../../components/SearchForm';
 
-import {Title, Wrapper, BgImage} from '../styling/style';
-import {GlobalStyle} from '../styling/globalStyle';
+import {Title, Wrapper, BgImage} from '../../styles/style';
+import {GlobalStyle} from '../../styles/globalStyle';
 
 const Home = (props) => {
   const { query, setQuery, handleSubmit } = props;

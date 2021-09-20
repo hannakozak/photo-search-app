@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Input, Button } from '../styling/style';
+import { Input, Button } from '../styles/style';
 import { FaSistrix } from 'react-icons/fa';
-import { GlobalStyle } from '../styling/globalStyle';
+import { GlobalStyle } from '../styles/globalStyle';
  
 const SerachForm = (props) => {
   const { query, setQuery, handleSubmit } = props;

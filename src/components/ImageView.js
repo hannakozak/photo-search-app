@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import { Wrapper, Image, CloseButton} from '../styling/style';
+import { Wrapper, Image, CloseButton} from '../styles/style';
 
 const ImageView = ({ image }) => {
   
@@ -12,9 +12,9 @@ const ImageView = ({ image }) => {
 
   return (
     <Wrapper onClick={ back }>
-      <Image src={image.urls.regular} alt={ image.description } />
+      <Image src={image.urls.full} alt={ image.description } />
         <CloseButton type="button" onClick={ back }>
-        X
+        close
         </CloseButton>
         <p>Photo by { image.user.name } on Unsplash</p>
         <p>{ image.description }</p>

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
-import Home from './pages/Home';
-import PhotoList from './pages/PhotoList';
+import Home from './pages/Home/Home';
+import PhotoList from './pages/PhotoList/PhotoList';
 import ImageView from './components/ImageView';
 
 import { Switch,  Route, useHistory } from 'react-router-dom';

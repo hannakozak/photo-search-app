@@ -24,11 +24,15 @@ border: none;
 padding: 1rem 2rem;
 font-size: 1.5rem;
 border-radius: 100px;
-width: 60%;
+width: 40%;
 margin-right: -3.25rem;
-margin-bottom: 3rem;
-margin-top: 3rem;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+margin-bottom: 5rem;
+margin-top: 5rem;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 8px;
+&:focus {
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 `;
 
 export const Button = styled.button`
@@ -46,7 +50,7 @@ export const CloseButton = styled.button`
   background-color: transparent;
   color: white;
   text-transform: uppercase;
-  right: 3rem;
+  right: 5rem;
   bottom: 1.5rem;
   z-index: 10;
 `;
@@ -59,20 +63,6 @@ export const Image = styled.img`
 
 export const Modal = styled.img`
  position: relative;
-`;
-
-export const ImageGrid = styled.div`
-column-count: 3;
-padding: 4rem;
-`;
-
-export const Card = styled.div`
-    display: flex;
-`;
-
-export const CardImage = styled.div`
-    border-radius: 10px;
-    padding-bottom: 1.5rem;
 `;
 
 export const Wrapper = styled.div`
