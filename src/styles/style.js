@@ -44,6 +44,7 @@ export const Button = styled.button`
 
 export const CloseButton = styled.button`
   font-size: 1rem;
+  font-style: inherit;
   text-align: center;
   border: none;
   position: relative;

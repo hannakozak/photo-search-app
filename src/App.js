@@ -16,7 +16,13 @@ function App() {
   let history = useHistory();
 
   const fetchData = useCallback(async () => {
-    const response = await unsplash.get('/search/photos', { params: { query: search } });
+    const response = await unsplash.get('/search/photos', { 
+      params: { 
+        query: search,
+        per_page: 20
+       } 
+      }
+    );
     setImages(response.data.results);
   }, [search])
 
