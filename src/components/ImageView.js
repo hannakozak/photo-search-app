@@ -12,7 +12,7 @@ const ImageView = ({ images }) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper onClick={handleCloseImage}>
       <Image src={image.urls.regular} alt={image.description} />
       <CloseButton type="button" onClick={handleCloseImage}>
         close
