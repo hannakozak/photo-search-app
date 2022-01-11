@@ -1,25 +1,26 @@
-import { useHistory } from "react-router-dom";
-import { Wrapper, Image, CloseButton} from '../styles/style';
+import { Wrapper, Image, CloseButton } from "../styles/style";
+import { useParams, useNavigate } from "react-router-dom";
 
-const ImageView = ({ image }) => {
-  
-  let history = useHistory();
+const ImageView = ({ images }) => {
+  const { id } = useParams();
+  const image = images.find((image) => image.id === id);
 
-  let back = e => {
-    e.stopPropagation();
-    history.goBack();
+  const navigate = useNavigate();
+
+  const handleCloseImage = () => {
+    navigate(-1);
   };
 
   return (
-    <Wrapper onClick={ back }>
-      <Image src={image.urls.full} alt={ image.description } />
-        <CloseButton type="button" onClick={ back }>
+    <Wrapper>
+      <Image src={image.urls.regular} alt={image.description} />
+      <CloseButton type="button" onClick={handleCloseImage}>
         close
-        </CloseButton>
-        <p>Photo by { image.user.name } on Unsplash</p>
-        <p>{ image.description }</p>
+      </CloseButton>
+      <p>Photo by {image.user.name} on Unsplash</p>
+      <p>{image.description}</p>
     </Wrapper>
-  )
-}
+  );
+};
 
 export default ImageView;

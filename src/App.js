@@ -1,59 +1,74 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react";
 
-import Home from './pages/Home/Home';
-import PhotoList from './pages/PhotoList/PhotoList';
-import ImageView from './components/ImageView';
+import Home from "./pages/Home/Home";
+import PhotoList from "./pages/PhotoList/PhotoList";
+import ImageView from "./components/ImageView";
 
-import { Switch,  Route, useHistory } from 'react-router-dom';
+import { Routes, Route, useNavigate } from "react-router-dom";
 
-import unsplash from './api/unsplash';
-
+import { unsplash } from "./api";
 function App() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [images, setImages] = useState([]);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
-  let history = useHistory();
+  let navigate = useNavigate();
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await unsplash.get('/search/photos', { 
-        params: { 
-          query: search,
-          per_page: 20
-         } 
-        }
-      );
-      setImages(response.data.results);
+      await unsplash.search
+        .getPhotos({
+          query: query,
+          page: 10,
+        })
+        .then((result) => {
+          setImages(result.response.results);
+        });
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }, [search])
+  }, [search]);
 
   useEffect(() => {
     fetchData();
-    setQuery('')
-  }, [fetchData])
+    setQuery("");
+  }, [search]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setSearch(query)
-    
-    history.push("/photos");
+    setSearch(query);
+
+    navigate("/photos");
   };
-    
-    return (
-      <Switch>
-        <Route path="/photos">
-          <PhotoList images={images} query={query} setQuery={setQuery} handleSubmit={handleSubmit}/>
-        </Route>
-        <Route path="/image/:id" render={({match}) => (
-           <ImageView image={images.find(image => image.id === match.params.id)} />)}></Route>
-        <Route path="/" >
-          <Home images={images} query={query} setQuery={setQuery} handleSubmit={handleSubmit}/>
-        </Route>
-      </Switch>
-    )
+
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Home
+            images={images}
+            query={query}
+            setQuery={setQuery}
+            handleSubmit={handleSubmit}
+          />
+        }
+      />
+
+      <Route
+        path="photos"
+        element={
+          <PhotoList
+            images={images}
+            query={query}
+            setQuery={setQuery}
+            handleSubmit={handleSubmit}
+          />
+        }
+      ></Route>
+      <Route path="photos/:id" element={<ImageView images={images} />} />
+    </Routes>
+  );
 }
 
 export default App;

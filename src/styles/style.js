@@ -56,9 +56,9 @@ export const CloseButton = styled.button`
   z-index: 10;
 `;
 export const Image = styled.img`
- max-height: 80vh;
  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
- position: relative;
+ max-width: 90vw;
+ max-height: 90vh;
  z-index: 1;
 `;
 
@@ -67,8 +67,8 @@ export const Modal = styled.img`
 `;
 
 export const Wrapper = styled.div`
-position: relative;
-  margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  margin: 0 auto;
 `;
+
