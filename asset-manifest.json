@@ -1,18 +1,11 @@
 {
   "files": {
-    "main.js": "/photo-search-app/static/js/main.a7bcc197.chunk.js",
-    "main.js.map": "/photo-search-app/static/js/main.a7bcc197.chunk.js.map",
-    "runtime-main.js": "/photo-search-app/static/js/runtime-main.ff2f7e57.js",
-    "runtime-main.js.map": "/photo-search-app/static/js/runtime-main.ff2f7e57.js.map",
-    "static/js/2.ffe93280.chunk.js": "/photo-search-app/static/js/2.ffe93280.chunk.js",
-    "static/js/2.ffe93280.chunk.js.map": "/photo-search-app/static/js/2.ffe93280.chunk.js.map",
+    "main.js": "/photo-search-app/static/js/main.7c892f43.js",
+    "static/media/jonatan-pie-3l3RwQdHRHg-unsplash.jpg": "/photo-search-app/static/media/jonatan-pie-3l3RwQdHRHg-unsplash.172c410eddd80594515b.jpg",
     "index.html": "/photo-search-app/index.html",
-    "static/js/2.ffe93280.chunk.js.LICENSE.txt": "/photo-search-app/static/js/2.ffe93280.chunk.js.LICENSE.txt",
-    "static/media/tree-large.3ecae817.jpg": "/photo-search-app/static/media/tree-large.3ecae817.jpg"
+    "main.7c892f43.js.map": "/photo-search-app/static/js/main.7c892f43.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.ff2f7e57.js",
-    "static/js/2.ffe93280.chunk.js",
-    "static/js/main.a7bcc197.chunk.js"
+    "static/js/main.7c892f43.js"
   ]
 }
