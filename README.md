@@ -5,20 +5,21 @@ The application allows user to search for inspiring images, view results and mor
 
 ## Build with
 
-React
-React Hooks
-React Router
-Styled Components
-React Icons
+- unsplash api https://unsplash.com/developers
+- React
+- React Hooks
+- React Router
+- Styled Components
+- React Icons
 
 ## Features
 
-Image Search
-Paggination
-Responsivness
+- Image Search
+- Paggination
+- Responsivness
 
 ## Install
 
-$ git clone project
-$ cd project
-$ npm install
+- $ git clone project
+- $ cd project
+- $ npm install
