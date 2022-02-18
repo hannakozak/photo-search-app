@@ -1,25 +1,40 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from 'react';
 
-import Home from "./pages/Home/Home";
-import PhotoList from "./pages/PhotoList/PhotoList";
-import ImageView from "./components/ImageView";
+import Home from './pages/Home/Home';
+import PhotoList from './pages/PhotoList/PhotoList';
+import ImageView from './components/ImageView/ImageView';
 
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import { unsplash } from "./api";
+import { unsplash } from './api';
 function App() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const [images, setImages] = useState([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
 
   let navigate = useNavigate();
 
-  const fetchData = useCallback(async () => {
+  const goToNextPage = () => {
+    setCurrentPage((currentPage) => currentPage + 1);
+  };
+
+  const goToPreviousPage = () => {
+    setCurrentPage((currentPage) => currentPage - 1);
+  };
+
+  const changePage = (event) => {
+    const pageNumber = Number(event.target.textContent);
+    setCurrentPage(pageNumber);
+  };
+
+  const fetchData = async () => {
     try {
       await unsplash.search
         .getPhotos({
           query: query,
-          page: 10,
+          page: currentPage,
+          perPage: 9,
         })
         .then((result) => {
           setImages(result.response.results);
@@ -27,33 +42,22 @@ function App() {
     } catch (error) {
       console.error(error);
     }
-  }, [search]);
-
+  };
+  console.log(images);
   useEffect(() => {
     fetchData();
-    setQuery("");
-  }, [search]);
+  }, [search, currentPage]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setSearch(query);
 
-    navigate("/photos");
+    navigate('/photos');
   };
 
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <Home
-            images={images}
-            query={query}
-            setQuery={setQuery}
-            handleSubmit={handleSubmit}
-          />
-        }
-      />
+      <Route path="/" element={<Home images={images} query={query} setQuery={setQuery} handleSubmit={handleSubmit} />} />
 
       <Route
         path="photos"
@@ -63,6 +67,10 @@ function App() {
             query={query}
             setQuery={setQuery}
             handleSubmit={handleSubmit}
+            currentPage={currentPage}
+            goToNextPage={goToNextPage}
+            goToPreviousPage={goToPreviousPage}
+            changePage={changePage}
           />
         }
       ></Route>
